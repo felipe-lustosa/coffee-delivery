@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { HeaderContainer } from "./styles";
-import logoCoffe from "../../assets/Logo.png"
+import logoCoffee from "../../assets/Logo.png"
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 
 export function Header() {
+  console.log(typeof logoCoffee)
   return (
     <HeaderContainer>
       <NavLink to="/">
-        <img src={logoCoffe} />
+        <img src={logoCoffee} />
       </NavLink>
       <nav>
         <span>
