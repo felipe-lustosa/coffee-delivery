@@ -1,7 +1,12 @@
 export function Home() {
   return (
-    <div>
-      Home
-    </div>
+    <main>
+      <section id="intro">
+        Home
+      </section>
+      <section id="coffee-list">
+
+      </section>
+    </main>
   )
 }
