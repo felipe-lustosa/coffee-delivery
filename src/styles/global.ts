@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -9,13 +9,12 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
-    /* box-shadow: 0 0 0 2px ${(props) => props.theme['green-500']}; */
   }
 
   body {
     background: ${(props) => props.theme['base-background']};
-    /* color: ${(props) => props.theme['gray-300']}; */
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   body, input, text-area, button {
@@ -23,4 +22,12 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1rem;
   } 
+
+  button {
+    cursor: pointer;
+  }
+`
+
+export const BaseLayout = styled.section`
+  padding-inline: 10rem;
 `

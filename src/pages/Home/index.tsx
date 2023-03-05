@@ -1,8 +1,10 @@
+import { useContext, useState } from 'react'
 import { CategoryButton, CoffeeListCategories, CoffeeListContainer, CoffeeListHeader, CoffeeListProducts, IconContainer, IntroContainer, IntroItemsContainer, IntroTextContainer, IntroTitleContainer } from "./styles";
 import introImage from "../../assets/Intro.png"
 import { FaShoppingCart } from "react-icons/fa";
-import { products } from "../../assets/productsData";
 import { ProductItem } from "./components/ProductItem";
+import { ProductsContext } from "../../contexts/ProductsContext";
+import { Product } from '../../assets/productsData';
 
 const introContent = {
   title: "Encontre o café perfeito para qualquer hora do dia",
@@ -32,9 +34,20 @@ const introContent = {
   ]
 }
 
-const coffeeCategories = ["TRADICIONAL", "ESPECIAL", "COM LEITE", "ALCOÓLICO", "GELADO"]
+
 
 export function Home() {
+  const { products, categories, cart, updateCartProduct } = useContext(ProductsContext)
+  const [selectedCategories, setSelectedCategories]: string[] = useState([])
+
+  function handleSelectedCategory(category: string) {
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(selectedCategories.filter((c: string) => c != category))
+    } else {
+      setSelectedCategories([...selectedCategories, category]) //
+    }
+  }
+
   return (
     <main>
       <IntroContainer id="intro">
@@ -61,16 +74,17 @@ export function Home() {
         <CoffeeListHeader>
           <h1>Nossos cafés</h1>
           <CoffeeListCategories>
-            {coffeeCategories.map(category => {
-              return <CategoryButton key={category}>
+            {categories.map((category: string) => {
+              return <CategoryButton key={category} onClick={() => handleSelectedCategory(category)} isSelected={selectedCategories.includes(category)} >
                 {category}
               </CategoryButton>
             })}
           </CoffeeListCategories>
         </CoffeeListHeader>
         <CoffeeListProducts>
-          {products.map(product => {
-            return <ProductItem key={product.id} product={product} />
+          {products.map((product: Product) => {
+            if (selectedCategories.length == 0 || selectedCategories.some((item: string) => product.category.includes(item)))
+              return <ProductItem key={product.id} product={product} handleUpdateCartProduct={updateCartProduct} />
           })}
         </CoffeeListProducts>
       </CoffeeListContainer>

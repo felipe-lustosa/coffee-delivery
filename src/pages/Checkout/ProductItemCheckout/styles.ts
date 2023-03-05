@@ -2,16 +2,24 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   row-gap: 0.75rem;
 
   background: ${props => props.theme['base-card']};
-  padding: 1.25rem;
+  /* padding: 1.25rem; */
   border-top-right-radius: 32px;
   border-bottom-left-radius: 32px;
   text-align: center;
+
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid ${props => props.theme['base-button']};
+
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
 `
 
 export const CategoryContainer = styled.div`
@@ -37,55 +45,44 @@ export const ProductCategoryButton = styled.button`
 
 `
 
-export const TitleContainer = styled.div`
+export const PriceContainer = styled.div`
+  color: ${props => props.theme['base-text']};
+
+  span {
+    font-size: ${props => props.theme['text-md']};
+    font-weight: 700;
+  }
+
+`
+
+export const CartDataContainer = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: start;
+  align-items: start;
+  justify-content: start;
   gap: 0.5rem;
 
   h2 {
-    font-size: ${props => props.theme['title-sm']};
+    font-size: ${props => props.theme['text-md']};
     /* 1.25rem */
     font-weight: 700;
     color: ${props => props.theme['base-subtitle']}
   }
-
-  p {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: ${props => props.theme['base-label']}
-  }
-`
-
-export const PriceContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-
-  width: 100%;
-  color: ${props => props.theme['base-text']};
-
-  p {
-    font-size: 0.75rem;
-    padding-right: 0.25rem;
-  }
-
-  span {
-    font-size: 1.25rem;
-    font-weight: 800;
-  }
-
 `
 
 export const ProductAmountContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`
+
+export const ProductAmountStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
   gap: 0.5rem;
 
-  width: 72px;
-  height: 38px;
 
   /* Base/Button */
 
@@ -102,13 +99,14 @@ export const ProductAmountContainer = styled.div`
     background: ${props => props.theme['base-button']};
     color: ${props => props.theme['purple-700']};
     display: flex;
+    align-items: center;
+    gap: 0.25rem;
     border: none;
+    font-size: 0.75rem;
   }
 
-  span {
-    font-size: ${props => props.theme['text-md']};
-    font-weight: 400;
-  }
+  font-size: ${props => props.theme['text-md']};
+  font-weight: 400;
 `
 
 export const CartButton = styled.button`
@@ -122,5 +120,5 @@ export const CartButton = styled.button`
 
 export const CartContainer = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 1.25rem;
 `

@@ -13,6 +13,8 @@ import coffee12 from '../assets/productImages/coffee12.png'
 import coffee13 from '../assets/productImages/coffee13.png'
 import coffee14 from '../assets/productImages/coffee14.png'
 
+export const coffeeCategories = ["TRADICIONAL", "ESPECIAL", "COM LEITE", "ALCOÓLICO", "GELADO"]
+
 export interface Product {
   id: number;
   name: string;
@@ -22,7 +24,7 @@ export interface Product {
   image: string;
 }
 
-export const products = [
+export const productsData = [
   {
     id: 1,
     name: 'Expresso Tradicional',

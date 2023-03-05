@@ -1,11 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { HeaderContainer } from "./styles";
+import { AmountProductsInCartContainer, HeaderContainer } from "./styles";
 import logoCoffee from "../../assets/Logo.png"
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
+import { ProductsContext } from "../../contexts/ProductsContext";
+import { useContext } from 'react'
 
 export function Header() {
-  console.log(typeof logoCoffee)
+  const { cart } = useContext(ProductsContext)
+
   return (
     <HeaderContainer>
       <NavLink to="/">
@@ -18,7 +21,12 @@ export function Header() {
             Petrolina, PE
           </p>
         </span>
-        <NavLink to="cart"><FaShoppingCart size={22} /></NavLink>
+        <NavLink to="checkout">
+          <FaShoppingCart size={22} />
+          <AmountProductsInCartContainer>
+            <p>{cart.products.length}</p>
+          </AmountProductsInCartContainer>
+        </NavLink>
       </nav>
     </HeaderContainer>
   )

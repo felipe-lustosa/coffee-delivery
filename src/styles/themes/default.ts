@@ -18,4 +18,16 @@ export const defaultTheme = {
   'yellow-300': '#F1E9C9',
   'yellow-500': '#DBAC2C',
   'yellow-700': '#C47F17',
+
+  'title-xl': '3rem',
+  'title-lg': '2rem',
+  'title-md': '1.5rem',
+  'title-sm': '1.25rem',
+  'title-xs': '1.125rem',
+
+  'text-lg': '1.25rem',
+  'text-md': '1rem',
+  'text-sm': '0.875rem',
+
+
 }

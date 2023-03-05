@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import introBackground from "../../assets/IntroBackground.png"
+import { BaseLayout } from "../../styles/global";
 
-export const IntroContainer = styled.section`
+export const IntroContainer = styled(BaseLayout)`
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   
   padding-block: 5.875rem;
-  padding-inline: 10rem;
   background-image: url(${introBackground});
 `
 
@@ -82,7 +82,7 @@ export const CategoryButton = styled.button`
   padding-block: 0.375rem;
   padding-inline: 0.75rem;
   border-color: ${props => props.theme['yellow-300']};
-  background: inherit;
+  background: ${props => props.isSelected ? props.theme['yellow-300'] : "inherit"};
   color: ${props => props.theme['yellow-700']};
 
   font-size: 0.625rem;
@@ -91,7 +91,15 @@ export const CategoryButton = styled.button`
 
 export const CoffeeListProducts = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-column-gap: 2rem;
   grid-row-gap: 2.5rem;
+
+  @media only screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 1324px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `

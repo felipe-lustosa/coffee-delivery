@@ -30,13 +30,27 @@ export const HeaderContainer = styled.header`
     }
     
     a {
+      position: relative;
       padding: 0.5rem;
       background-color: ${props => props.theme['yellow-300']};
-      color: ${props => props.theme['yellow-500']};
+      color: ${props => props.theme['yellow-700']};
       border-radius: 8px;
       margin: auto;
       height: 2.375rem;
       width: 2.375rem;
     }
   }
+`
+
+export const AmountProductsInCartContainer = styled.div`
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
+  border-radius: 100%;
+
+  color: white;
+  background: ${props => props.theme['yellow-700']};
+  font-size: ${props => props.theme['text-sm']}
 `
