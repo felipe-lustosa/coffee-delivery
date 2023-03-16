@@ -15,7 +15,6 @@ export function Checkout() {
   const navigate = useNavigate();
 
   function handleConfirmPurchase(data: any) {
-    console.log(data)
     setUserCheckoutInformation({ ...userCheckoutInformation, location: data })
     if (!!userCheckoutInformation.location && !!userCheckoutInformation.paymentMethod)
       navigate('/success')
@@ -36,13 +35,13 @@ export function Checkout() {
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </UserInformationHeaderContainer>
             <UserInformationInputsContainer>
-              <Input type="text" {...register('cep')} required placeholder="CEP" />
-              <Input type="text" {...register('street')} required placeholder="Endereço" />
-              <Input type="text" {...register('houseNumber')} required placeholder="Número" />
-              <Input type="text" {...register('complement')} required placeholder="Complemento" />
-              <Input type="text" {...register('district')} required placeholder="Bairro" />
-              <Input type="text" {...register('city')} required placeholder="Cidade" />
-              <Input type="text" {...register('state')} required placeholder="UF" />
+              <Input {...register('cep', { required: true })} required placeholder="CEP" />
+              <Input {...register('street', { required: true })} required placeholder="Endereço" />
+              <Input {...register('houseNumber', { required: true })} required placeholder="Número" />
+              <Input {...register('complement', { required: true })} required placeholder="Complemento" />
+              <Input {...register('district', { required: true })} required placeholder="Bairro" />
+              <Input {...register('city', { required: true })} required placeholder="Cidade" />
+              <Input {...register('state', { required: true })} required placeholder="UF" />
             </UserInformationInputsContainer>
           </UserInformationContainer>
           <UserInformationContainer>
@@ -80,7 +79,7 @@ export function Checkout() {
                     <h3>-</h3>
                   </CheckoutInformationItemContainer>
                 </CheckoutInformationContainer>
-                <button type="submit" onClick={handleConfirmPurchase}>Confirmar Pedido</button>
+                <button type="submit">Confirmar Pedido</button>
               </ConfirmCheckoutInformationContainer>
             </div>
           </SelectedCoffeesInfoContainer>
