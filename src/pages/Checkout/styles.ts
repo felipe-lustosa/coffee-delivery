@@ -2,8 +2,10 @@ import styled from "styled-components";
 import { BaseLayout } from "../../styles/global";
 
 export const CheckoutContainer = styled(BaseLayout)`
-  display: flex;
-  gap: 2rem;
+  form {
+    display: flex;
+    gap: 2rem;
+  }
 `
 
 export const FinishOrderContainer = styled.div`
@@ -22,6 +24,14 @@ export const UserInformationContainer = styled.div`
   border-radius: 8px;
 
   background: ${props => props.theme['base-card']};
+
+`
+
+export const UserInformationInputsContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 0.75rem;
+    grid-row-gap: 1rem;
 `
 
 export const PaymentMethodsContainer = styled.div`
@@ -88,4 +98,44 @@ padding: 2.5rem;
 border-radius: 8px;
 
 background: ${props => props.theme['base-card']};
+`
+
+export const ConfirmCheckoutInformationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+
+  button {
+    background-color: ${props => props.theme['yellow-500']};
+    color: white;
+    padding-block: 0.75rem;
+    border-radius: 8px;
+    border: none;
+  }
+`
+
+export const CheckoutInformationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  span {
+    font-size: ${props => props.theme['text-sm']};
+    color: ${props => props.theme['base-text']};
+  }
+
+  h3 {
+    font-size: ${props => props.theme['text-lg']};
+    font-weight: 700;
+    color: ${props => props.theme['base-subtitle']};
+  }
+  button {
+
+  }
+`
+
+export const CheckoutInformationItemContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
 `

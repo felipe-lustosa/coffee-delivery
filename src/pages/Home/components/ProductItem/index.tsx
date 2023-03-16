@@ -14,6 +14,11 @@ export function ProductItem({ product, handleUpdateCartProduct }: ProductItemPro
   const [selectedProductsAmount, setSelectedProductsAmount] = useState(0)
   const separatedCurrencyAndValue = product.price.split(' ')
 
+  const handleClickCart = () => {
+    handleUpdateCartProduct(product, selectedProductsAmount)
+    setSelectedProductsAmount(0)
+  }
+
   return (
     <ProductContainer>
       <img src={product.image} />
@@ -38,7 +43,7 @@ export function ProductItem({ product, handleUpdateCartProduct }: ProductItemPro
               <AiOutlinePlus size={18} />
             </button>
           </ProductAmountContainer>
-          <CartButton onClick={() => handleUpdateCartProduct(product, selectedProductsAmount)}>
+          <CartButton onClick={handleClickCart}>
             <FaShoppingCart size={22} color="white" />
           </CartButton>
         </CartContainer>

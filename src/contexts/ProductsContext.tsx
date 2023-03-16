@@ -6,6 +6,8 @@ interface ProductsContextType {
   categories: string[];
   cart: Cart;
   updateCartProduct: (product: Product, selectedProductAmount: number) => void;
+  userCheckoutInformation: any
+  setUserCheckoutInformation: any
 }
 
 interface Cart {
@@ -28,6 +30,7 @@ export function ProductsContextProvider({ children }: ProductsContextProviderPro
   const products = productsData
   const categories = coffeeCategories
   const [cart, setCart]: Cart = useState({ products: [] })
+  const [userCheckoutInformation, setUserCheckoutInformation] = useState()
 
   function updateCartProduct(product: Product, selectedProductAmount: number) {
     if (selectedProductAmount == 0 && cart.products.find((c: CartProduct) => c.product == product)) {
@@ -42,12 +45,13 @@ export function ProductsContextProvider({ children }: ProductsContextProviderPro
             amount: selectedProductAmount,
             value: product.price
           },
-        ]
+        ],
+        // totalValue: cart.totalValue + (product.price * selectedProductAmount)
       })
   }
 
   return (
-    <ProductsContext.Provider value={{ products, categories, cart, updateCartProduct }}>
+    <ProductsContext.Provider value={{ products, categories, cart, userCheckoutInformation, setUserCheckoutInformation, updateCartProduct }}>
       {children}
     </ProductsContext.Provider>
   )

@@ -38,7 +38,7 @@ const introContent = {
 
 export function Home() {
   const { products, categories, cart, updateCartProduct } = useContext(ProductsContext)
-  const [selectedCategories, setSelectedCategories]: string[] = useState([])
+  const [selectedCategories, setSelectedCategories]: any = useState([])
 
   function handleSelectedCategory(category: string) {
     if (selectedCategories.includes(category)) {
